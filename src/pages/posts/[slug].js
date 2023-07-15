@@ -10,7 +10,6 @@ import usePageMetadata from 'hooks/use-page-metadata';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
-import Metadata from 'components/Metadata';
 import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
@@ -20,11 +19,7 @@ export default function Post({ post }) {
     title,
     metaTitle,
     description,
-    date,
-    author,
-    categories,
     featuredImage,
-    isSticky = false,
   } = post;
 
   const { metadata: siteMetadata = {} } = useSite();
@@ -50,10 +45,6 @@ export default function Post({ post }) {
     metadata.og.title = metadata.title;
     metadata.twitter.title = metadata.title;
   }
-
-  const metadataOptions = {
-    compactCategories: false,
-  };
 
   const helmetSettings = helmetSettingsFromMetadata(metadata);
 
