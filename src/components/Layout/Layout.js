@@ -5,9 +5,7 @@ import styles from './Layout.module.scss';
 import useSite from 'hooks/use-site';
 import { helmetSettingsFromMetadata } from 'lib/site';
 
-import Nav from 'components/Nav';
 import Main from 'components/Main';
-import Footer from 'components/Footer';
 
 const Layout = ({ children }) => {
   const router = useRouter();
@@ -64,11 +62,8 @@ const Layout = ({ children }) => {
     <div className={styles.layoutContainer}>
       <Helmet {...helmetSettings} />
 
-      <Nav />
-
       <Main>{children}</Main>
 
-      <Footer />
     </div>
   );
 };

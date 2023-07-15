@@ -131,14 +131,6 @@ export default function Post({ post }) {
               dangerouslySetInnerHTML={featuredImage.caption}
             />
           )}
-          <Metadata
-            className={styles.postMetadata}
-            date={date}
-            author={author}
-            categories={categories}
-            options={metadataOptions}
-            isSticky={isSticky}
-          />
         </Container>
       </div>
     </Layout>
