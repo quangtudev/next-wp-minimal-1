@@ -15,7 +15,7 @@ export default function Custom404() {
       </Helmet>
       <Section>
         <Container className={styles.center}>
-          <h1 className={styles.minimal}>Welcome to my website</h1>
+          <h1>Welcome to my website</h1>
         </Container>
       </Section>
     </Layout>
