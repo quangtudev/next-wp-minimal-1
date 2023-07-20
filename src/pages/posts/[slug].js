@@ -10,7 +10,7 @@ import usePageMetadata from 'hooks/use-page-metadata';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
-import FeaturedImage from 'components/FeaturedImage';
+// import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
 
@@ -115,13 +115,7 @@ export default function Post({ post }) {
               __html: title,
             }}
           />
-          {featuredImage && (
-            <FeaturedImage
-              {...featuredImage}
-              src={featuredImage.sourceUrl}
-              dangerouslySetInnerHTML={featuredImage.caption}
-            />
-          )}
+         
             <p style={{fontFamily: 'sans-serif'}}>You are being redirected to the post, please wait 1-2 seconds...</p>
         </Container>
       </div>
