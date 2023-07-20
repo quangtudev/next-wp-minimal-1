@@ -122,6 +122,7 @@ export default function Post({ post }) {
               dangerouslySetInnerHTML={featuredImage.caption}
             />
           )}
+            <p style={{fontFamily: 'sans-serif'}}>You are being redirected to the post, please wait 1-2 seconds...</p>
         </Container>
       </div>
     </Layout>
