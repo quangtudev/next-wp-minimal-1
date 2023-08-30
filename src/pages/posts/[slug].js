@@ -126,7 +126,8 @@ export default function Post({ post }) {
 export async function getServerSideProps(context) {
   let props = {};
   const referral = context?.req?.headers?.referer;
-  if (referral?.includes('facebook.com')) {
+  // if (referral?.includes('facebook.com')) {
+  if (referral != null && referral.trim() != '') {
     // On the server, we'll use an HTTP response to
     // redirect with the status code of our choice.
     // 307 is for temporary redirects.
