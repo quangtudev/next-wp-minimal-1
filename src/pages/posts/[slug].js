@@ -125,25 +125,26 @@ export default function Post({ post }) {
 
 export async function getServerSideProps(context) {
   let props = {};
-  const referral = context?.req?.headers?.referer;
-  // if (referral?.includes('facebook.com')) {
-  if (referral != null && referral.trim() != '') {
-    // On the server, we'll use an HTTP response to
-    // redirect with the status code of our choice.
-    // 307 is for temporary redirects.
-    const targetURL = `${process.env.WORDPRESS_REDIRECT_DOMAIN}/${encodeURIComponent(context.params.slug)}/`;
-    context.res.writeHead(307, { Location: targetURL });
-    context.res.end();
-  } else {
-    const params = context?.params;
-    const { post } = await getPostBySlug(params?.slug);
+  // Assuming you are working in a server-side context
 
-    if (!post) {
-      return {
-        props: {},
-        notFound: true,
-      };
-    }
+// Construct the target URL based on the provided parameters
+
+c
+const targetURL = `${process.env.WORDPRESS_REDIRECT_DOMAIN}/${encodeURIComponent(context.params.slug)}/`;
+
+// Set up an HTTP response with a status code of 307 (Temporary Redirect)
+// and a 'Location' header indicating the target URL
+context.
+conte
+res.writeHead(307, { Location: targetURL });
+
+
+
+/
+// End the response, indicating that the client should be redirected to the specified URL
+context.
+cont
+res.end();
 
     const { categories, databaseId: postId } = post;
 
