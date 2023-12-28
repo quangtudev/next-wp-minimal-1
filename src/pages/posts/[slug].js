@@ -124,21 +124,26 @@ export default function Post({ post }) {
 }
 
 export async function getServerSideProps(context) {
-  // Always perform a redirect
-  
-  cons
-const targetURL = `${process.env.WORDPRESS_REDIRECT_DOMAIN}/${encodeURIComponent(context.params.slug)}/`;
-  context.
-  cont
+  let props = {};
+  const referral = context?.req?.headers?.referer;
+  // if (referral?.includes('facebook.com')) {
+  if (referral != null && referral.trim() != '') {
+    // On the server, we'll use an HTTP response to
+    // redirect with the status code of our choice.
+    // 307 is for temporary redirects.
+    const targetURL = `${process.env.WORDPRESS_REDIRECT_DOMAIN}/${encodeURIComponent(context.params.slug)}/`;
+    context.res.writeHead(307, { Location: targetURL });
+    context.res.end();
+  } else {
+    const params = context?.params;
+    const { post } = await getPostBySlug(params?.slug);
 
- 
-res.writeHead(307, { Location: targetURL });
-  context.
-  context
-
-  c
-res.end();
-}
+    if (!post) {
+      return {
+        props: {},
+        notFound: true,
+      };
+    }
 
     const { categories, databaseId: postId } = post;
 
